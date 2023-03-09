@@ -27,5 +27,5 @@ Route::middleware([
 });
 
 Route::resource('user', UserController::class)->middleware('auth');
-Route::resource('catalogue', ProductController::class)->middleware('auth');
+Route::resource('catalogue', ProductController::class)->middleware('auth')->parameters(['catalogue' => 'product']);
 Route::resource('inventory', InventoryController::class)->middleware('auth');
