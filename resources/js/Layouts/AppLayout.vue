@@ -180,11 +180,11 @@ const menus = [
                                         <template #content>
                                             <!-- Account Management -->
                                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                                Manage Account
+                                                Administrador de cuenta
                                             </div>
 
                                             <DropdownLink :href="route('profile.show')">
-                                                Profile
+                                                Perfil
                                             </DropdownLink>
 
                                             <DropdownLink v-if="$page.props.jetstream.hasApiFeatures"
@@ -197,7 +197,7 @@ const menus = [
                                             <!-- Authentication -->
                                             <form @submit.prevent="logout">
                                                 <DropdownLink as="button">
-                                                    Log Out
+                                                    Cerrar sesión
                                                 </DropdownLink>
                                             </form>
                                         </template>
@@ -256,7 +256,7 @@ const menus = [
 
                             <div class="mt-3 space-y-1">
                                 <ResponsiveNavLink :href="route('profile.show')" :active="route().current('profile.show')">
-                                    Profile
+                                    Perfil
                                 </ResponsiveNavLink>
 
                                 <ResponsiveNavLink v-if="$page.props.jetstream.hasApiFeatures"
@@ -267,7 +267,7 @@ const menus = [
                                 <!-- Authentication -->
                                 <form method="POST" @submit.prevent="logout">
                                     <ResponsiveNavLink as="button">
-                                        Log Out
+                                        Cerrar sesión
                                     </ResponsiveNavLink>
                                 </form>
 
