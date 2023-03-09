@@ -19,6 +19,7 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'employee_number' => $this->employee_number,
+            'is_active' => $this->is_active,
             'created_at' => $this->created_at->isoFormat('DD MMM, YYYY'),
         ];
     }
