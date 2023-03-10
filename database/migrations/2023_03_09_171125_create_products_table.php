@@ -19,7 +19,7 @@ return new class extends Migration
             $table->float('min_quantity');
             $table->float('supply_point');
             $table->float('cost');
-            $table->foreignId('product_type')
+            $table->foreignId('product_type_id')
                     ->constrained()
                     ->cascadeOnDelete();
             $table->timestamps();
