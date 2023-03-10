@@ -12,15 +12,17 @@
                 <div class="flex flex-col lg:grid grid-cols-2 gap-2">
                     <div v-for="user in users.data" :key="user.id"
                         class="bg-white border border-white shadow-lg rounded-2xl p-2 mx-3 my-1 hover:bg-slate-200">
-                        <Link :href="route('user.show', user.id)">
+                        <Link :href="route('user.edit', user.id)">
                         <div class="flex">
                             <div class="relative h-16 w-16 mr-2">
-                                <i class="fa-solid fa-circle-user text-6xl"
-                                    :class="user.is_active ? 'text-green-400' : 'text-red-400'"></i>
+                                <img class="h-16 w-16 rounded-full object-cover border-4"
+                                :class="user.is_active ? 'border-green-400' : 'border-red-400'"
+                                    :src="user.profile_photo_url" :alt="user.name">
                             </div>
                             <section class="flex flex-col flex-1">
                                 <div class="flex justify-between">
-                                    <h1 class="text-xs font-bold"># Empleado: {{ user.employee_number }} | {{ user.name }}</h1>
+                                    <h1 class="text-xs font-bold"># Empleado: {{ user.employee_number }} | {{ user.name }}
+                                    </h1>
                                     <span v-if="user.is_active"
                                         class="bg-green-100 text-green-700 text-xs px-2 py-px rounded-lg">Activo</span>
                                     <span v-else
@@ -33,6 +35,10 @@
                                 <p class="text-xs text-gray-500">
                                     <i class="fa-regular fa-envelope mr-1"></i>
                                     {{ user.email }}
+                                </p>
+                                <p class="text-xs text-gray-500">
+                                    <i class="fa-solid fa-user-tag"></i>
+                                    {{ user.is_admin ? 'Administrador' : 'Trabajador' }}
                                 </p>
                             </section>
                         </div>

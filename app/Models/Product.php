@@ -16,7 +16,7 @@ class Product extends Model
         'min_quantity',
         'supply_point',
         'cost',
-        'product_type',
+        'product_type_id',
     ];
 
     //relationships

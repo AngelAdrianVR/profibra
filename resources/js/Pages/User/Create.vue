@@ -42,6 +42,12 @@
                 <TextInput id="password" v-model="form.password" type="text" class="mt-1 block w-full" disabled />
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
+            <div class="block mb-5">
+                <label class="flex items-center">
+                    <Checkbox v-model:checked="form.is_admin" name="is_admin" />
+                    <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">Es administrador</span>
+                </label>
+            </div>
 
             <PrimaryButton>Crear</PrimaryButton>
 
@@ -58,6 +64,7 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import TextInput from '@/Components/TextInput.vue';
 import InputError from '@/Components/InputError.vue';
+import Checkbox from '@/Components/Checkbox.vue';
 
 export default {
     data() {
@@ -65,7 +72,8 @@ export default {
             name: null,
             email: null, 
             employee_number: null,
-            password: this.password
+            password: this.password,
+            is_admin: false
         });
 
         return {
@@ -80,6 +88,7 @@ export default {
         TextInput,
         InputLabel,
         InputError,
+        Checkbox,
     }, 
     props: ['password'],
     methods: {
