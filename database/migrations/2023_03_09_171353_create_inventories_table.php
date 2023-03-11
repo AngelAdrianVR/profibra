@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
             $table->float('quantity');
-            $table->date('last_count_date');
+            $table->date('last_count_date')->nullable();
             $table->foreignId('product_id')
                     ->constrained()
                     ->cascadeOnDelete();

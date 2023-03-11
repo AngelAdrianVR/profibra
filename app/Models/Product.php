@@ -20,4 +20,8 @@ class Product extends Model
     ];
 
     //relationships
+    public function type()
+    {
+        return $this->belongsTo(ProductType::class);
+    }
 }
