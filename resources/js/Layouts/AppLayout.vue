@@ -28,29 +28,41 @@ const logout = () => {
 };
 
 const menus = [
+    // {
+    //     label: 'Inicio',
+    //     icon: '<i class="fa-solid fa-gauge-high"></i>',
+    //     route: 'dashboard',
+    //     active: 'dashboard',
+    // },
+    // {
+    //     label: 'Usuarios',
+    //     icon: '<i class="fa-solid fa-user"></i>',
+    //     route: 'user.index',
+    //     active: 'user.*',
+    // },
+    // {
+    //     label: 'Catalogo',
+    //     icon: '<i class="fa-solid fa-tags"></i>',
+    //     route: 'catalogue.index',
+    //     active: 'catalogue.*',
+    // },
+    // {
+    //     label: 'Inventario',
+    //     icon: '<i class="fa-solid fa-cart-flatbed"></i>',
+    //     route: 'inventory.index',
+    //     active: 'inventory.*',
+    // },
     {
-        label: 'Inicio',
-        icon: '<i class="fa-solid fa-gauge-high"></i>',
-        route: 'dashboard',
-        active: 'dashboard',
+        label: 'E/S',
+        icon: '<i class="fa-solid fa-list-check"></i>',
+        route: 'movements.index',
+        active: 'movements.*',
     },
     {
-        label: 'Usuarios',
-        icon: '<i class="fa-solid fa-user"></i>',
-        route: 'user.index',
-        active: 'user.*',
-    },
-    {
-        label: 'Catalogo',
-        icon: '<i class="fa-solid fa-tags"></i>',
-        route: 'catalogue.index',
-        active: 'catalogue.*',
-    },
-    {
-        label: 'Inventario',
-        icon: '<i class="fa-solid fa-cart-flatbed"></i>',
-        route: 'inventory.index',
-        active: 'inventory.*',
+        label: 'Requicisiones',
+        icon: '<i class="fa-solid fa-box"></i>',
+        route: 'requisitions.index',
+        active: 'requisitions.*',
     },
 ];
 
