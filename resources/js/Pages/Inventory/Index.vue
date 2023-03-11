@@ -35,30 +35,40 @@
                                                 </div>
                                             </th>
 
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Material
-                                            </th>
+                      <th
+                        scope="col"
+                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        Material
+                      </th>
 
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Cantidad
-                                            </th>
+                      <th
+                        scope="col"
+                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        Cantidad
+                      </th>
 
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Cantidad maxima
-                                            </th>
+                      <th
+                        scope="col"
+                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        Cantidad maxima
+                      </th>
 
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Cantidad minima
-                                            </th>
+                      <th
+                        scope="col"
+                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        Cantidad minima
+                      </th>
 
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Punto de reabastesimiento
-                                            </th>
+                      <th
+                        scope="col"
+                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        Punto de reabastesimiento
+                      </th>
 
                                             <th scope="col"
                                                 class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -108,9 +118,43 @@
                                     </tbody>
                                 </table>
                             </div>
+
                         </div>
-                    </div>
-                </div>
+                      </td>
+                      <td
+                        class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap"
+                      >
+                        {{ inventory.product.name }}
+                      </td>
+                      <td
+                        class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap"
+                      >
+                        {{ inventory.quantity }}
+                      </td>
+                      <td
+                        class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap"
+                      >
+                        {{ inventory.product.max_quantity }}
+                      </td>
+                      <td
+                        class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap"
+                      >
+                        {{ inventory.product.min_quantity }}
+                      </td>
+                      <td
+                        class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap"
+                      >
+                        {{ inventory.product.supply_point }}
+                      </td>
+                      <td
+                        class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap"
+                      >
+                        {{ inventory.last_count_date }}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             <Pagination :pagination="inventories" />
