@@ -26,8 +26,10 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::resource('user', UserController::class)->middleware('auth');
+Route::resource('user', UserController::class)->except('show')->middleware('auth');
 Route::resource('catalogue', ProductController::class)->middleware('auth')->parameters(['catalogue' => 'product']);
-Route::resource('inventory', InventoryController::class)->middleware('auth');
+Route::resource('inventory', InventoryController::class)->except('destroy')->middleware('auth');
 
 Route::put('user/toggle-activation/{user}', [UserController::class, 'toggleActivation'])->name('user.toggle-activation')->middleware('auth');
+Route::post('inventory/delete', [InventoryController::class, 'destroy'])->name('inventory.delete')->middleware('auth');
+Route::get('inventory/consumables-report', [InventoryController::class, 'generateConsumablesReport'])->name('inventory.generate-consumables-report')->middleware('auth');
