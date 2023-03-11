@@ -1,20 +1,19 @@
 <template>
   <AppLayout title="Catálogo">
     <h1 class="text-sky-800 text-xl mx-6 mt-2">Catálogo de productos</h1>
-    <div class="py-1">
+    <div class="py-1 w-11/12 mx-auto">
       <div class="flex justify-end mb-3">
         <Link :href="route('catalogue.create')">
           <SecondaryButton class="mr-6">Agregar</SecondaryButton>
         </Link>
-        <SecondaryButton class="mx-1" :disabled="selections.length === 0">
+        <SecondaryButton @click="show_confirmation = true" class="mx-1" :disabled="selections.length === 0">
           <i class="fa-solid fa-trash mr-1 text-red-600"></i>
           Eliminar seleccionados
         </SecondaryButton>
       </div>
-    </div>
+   
 
-    <!-- <ProductTable :products="products"/> -->
-
+    <!-- --- Table --- -->
     <div class="w-full z-10">
       <div class="flex flex-col">
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -78,7 +77,7 @@
                       scope="col"
                       class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
                     >
-                      Cantidad Min
+                      Cantidad Min.
                     </th>
 
                     <th
@@ -154,6 +153,20 @@
         </div>
       </div>
     </div>
+     </div>
+
+  <ConfirmationModal :show="show_confirmation" @close="show_confirmation = false">
+            <template #title>
+                Eliminar selecciones
+            </template>
+            <template #content>
+                Estas a punto de eliminar elementos del inventario, continuar?
+            </template>
+            <template #footer>
+                <SecondaryButton @click="show_confirmation = false" class="mr-2">Cancelar</SecondaryButton>
+                <DangerButton @click="deleteSelections">Si, eliminar</DangerButton>
+            </template>
+        </ConfirmationModal>
   </AppLayout>
 </template>
 <script>
@@ -161,11 +174,14 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import { Link } from "@inertiajs/vue3";
 import SecondaryButton from "@/Components/SecondaryButton.vue";
 import ProductTable from "@/Components/MyComponents/ProductTable.vue";
+import ConfirmationModal from '@/Components/ConfirmationModal.vue';
+import DangerButton from '@/Components/DangerButton.vue';
 
 export default {
   data() {
     return {
       selections: [],
+      show_confirmation: false,
     };
   },
   components: {
@@ -173,6 +189,8 @@ export default {
     Link,
     SecondaryButton,
     ProductTable,
+    ConfirmationModal,
+    DangerButton,
   },
   props: {
     products: Array,
@@ -190,6 +208,10 @@ export default {
         this.$inertia.get(route('catalogue.edit', product));
         //  window.location.href = '/catalogue/' + product.id + '/edit'; //redirecting page with reload.
     },
+    deleteSelections() {
+            this.$inertia.post(route('product.delete', ), { selections: this.selections });
+            this.show_confirmation = false;
+        },
   },
 };
 </script>

@@ -51,6 +51,18 @@ export default {
                     route: route('inventory.index'),
                     active: route().current('inventory.*')
                 },
+                {
+                    label: 'E/S',
+                    icon: '<i class="fa-solid fa-list-check"></i>',
+                    route: route('movements.index'),
+                    active: route().current('movements.*')
+                },
+                {
+                    label: 'Requicisiones',
+                    icon: '<i class="fa-solid fa-box"></i>',
+                    route: route('requisitions.index'),
+                    active: route().current('requisitions.*')
+                },
             ],
         }
     },

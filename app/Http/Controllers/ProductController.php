@@ -91,11 +91,8 @@ class ProductController extends Controller
     }
 
 
-    public function destroy(Product $product)
+    public function destroy(Request $request)
     {
-        $product->delete();
-        request()->session()->flash('flash.banner', '¡Se ha eliminado correctamente!');
-        request()->session()->flash('flash.bannerStyle', 'success'); 
-        return redirect()->route('catalogue.index');
+        Product::whereIn('id', $request->selections)->delete();
     }
 }
