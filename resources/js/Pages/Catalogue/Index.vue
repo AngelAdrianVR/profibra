@@ -176,6 +176,7 @@ import SecondaryButton from "@/Components/SecondaryButton.vue";
 import ProductTable from "@/Components/MyComponents/ProductTable.vue";
 import ConfirmationModal from '@/Components/ConfirmationModal.vue';
 import DangerButton from '@/Components/DangerButton.vue';
+import Checkbox from '@/Components/Checkbox.vue';
 
 export default {
   data() {
@@ -191,6 +192,7 @@ export default {
     ProductTable,
     ConfirmationModal,
     DangerButton,
+    Checkbox,
   },
   props: {
     products: Array,

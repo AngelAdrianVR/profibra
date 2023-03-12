@@ -16,7 +16,7 @@ class RequisitionController extends Controller
     
     public function create()
     {
-        //
+        return inertia('Requisition/Create');
     }
 
     
